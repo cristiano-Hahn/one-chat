@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function MyMessage({title, message}) {
+export default function MyMessage({ title, message }) {
     return (
         <div className='my-message'>
             <div className='author'>

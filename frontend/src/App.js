@@ -8,17 +8,44 @@ class App extends React.Component {
 
   constructor(props) {
     super(props)
+    this.send = this.send.bind(this)
+    this.onKeyDownSend = this.onKeyDownSend.bind(this)
+    this.scrollToBottom = this.scrollToBottom.bind(this)
+
     this.state = {
       messages: [
         { author: 'Moisés', message: "Olá, eu sou goku!", me: false },
         { author: 'Maxforce', message: "Mentira!", me: true }
-      ]
+      ],
+      newMessage: ''
     }
   }
 
+  send() {
+    const { messages, newMessage } = this.state
+    if (newMessage && newMessage.trim()) {
+      this.setState({
+        messages: [...messages, { author: 'Maxforce', message: newMessage, me: true }],
+        newMessage: ''
+      }, () => this.scrollToBottom())
+    }
+
+
+  }
+
+  onKeyDownSend(e) {
+    if (e.key === 'Enter') {
+      this.send()
+    }
+  }
+
+  scrollToBottom() {
+    const messages = document.getElementById("messages");
+    messages.scrollTop = messages.scrollHeight;
+  }
 
   render() {
-    const { messages } = this.state
+    const { messages, newMessage } = this.state
 
     return (
       <div className="App">
@@ -29,7 +56,7 @@ class App extends React.Component {
               Maxforce
             </div>
           </div>
-          <div className='messages'>
+          <div id='messages' className='messages'>
 
             {messages.map(item => {
               return (
@@ -48,8 +75,13 @@ class App extends React.Component {
           <div className='send-message'>
             <input
               placeholder="Digite algo para enviar"
+              value={newMessage}
+              onChange={e => this.setState({ newMessage: e.target.value })}
+              onKeyDown={this.onKeyDownSend}
             />
-            <button>
+            <button
+              onClick={this.send}
+            >
               <ReactLogo />
             </button>
 

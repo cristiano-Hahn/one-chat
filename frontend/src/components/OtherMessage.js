@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function OtherMessage({title, message}) {
+export default function OtherMessage({ title, message }) {
     return (
         <div className='other-message'>
             <div className='author'>

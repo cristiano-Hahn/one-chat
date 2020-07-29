@@ -14,19 +14,19 @@
 .main-screen .topbar .online-icon {
   margin: auto 10px;
   background-color: #0BCD59;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 10px;
 }
 
 .main-screen .topbar .username {
   color: #18BCE0;
-  font-size: 25px;
+  font-size: 20px;
 }
 
-.main-screen .messages{
+.main-screen .messages {
   overflow: auto;
-  height: calc(100% - 130px);
+  height: calc(100% - 120px);
 }
 
 .main-screen .author {
@@ -67,16 +67,17 @@
   color: #C2C2C2;
 }
 
-.main-screen .send-message{
-  position: absolute;
+.main-screen .send-message {
+  position: fixed;
   bottom: 10px;
   height: 40px;
   display: flex;
   width: 100%;
-  margin-bottom: 10px;
+  padding: 5px 0px;
+  background-color: #434343 ;
 }
 
-.main-screen .send-message input{
+.main-screen .send-message input {
   background-color: #323232;
   color: #C2C2C2;
   font-size: 15px;
@@ -88,11 +89,11 @@
   width: calc(100% - 130px);
 }
 
-.main-screen .send-message input:focus{
+.main-screen .send-message input:focus {
   outline: none;
 }
 
-.main-screen .send-message button{
+.main-screen .send-message button {
   background-color: #323232;
   border: none;
   width: 40px;
@@ -101,12 +102,12 @@
   margin-left: 20px;
 }
 
-.main-screen .send-message button:hover{
+.main-screen .send-message button:hover {
   background-color: #131313;
   cursor: pointer;
 }
 
-.main-screen .send-message button:focus{
+.main-screen .send-message button:focus {
   outline: none;
 }
 
@@ -114,5 +115,18 @@
   fill: #18BCE0;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
 
+::-webkit-scrollbar-track {
+  box-shadow: none
+}
 
+::-webkit-scrollbar-thumb {
+  background: #323232;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #131313;
+}
